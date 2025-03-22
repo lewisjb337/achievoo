@@ -1,3 +1,102 @@
 ﻿@inherits LayoutComponentBase
 
-@Body
+<style>
+    .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+        background-color: var(--background-color-dark-active) !important;
+        border-radius: 10px !important;
+        padding: 12px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-pills .nav-link.active .nav-link-text {
+        color: var(--primary) !important;
+    }
+
+    .nav-link{
+        color: var(--text-light)  !important;
+        border-radius: 10px !important;
+        padding: 10px !important;
+        font-weight: 400 !important;
+        font-size: 14px !important;
+        line-height: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        text-decoration: none !important;
+    }
+
+    .nav-pills .nav-link.active i {
+        color:  var(--primary);
+    }
+
+    .nav-link:hover{
+        background-color: var(--background-color-dark-active);
+    }
+</style>
+
+<div class="sidebar">
+    <a href="/" class="text-center text-white fs-3 text-decoration-none">
+        <img src="/images/logo-bg-transparent-text-white.png" alt="Achievoo Logo" width="150">
+    </a>
+
+    <div class="sidebar-content">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="sidebar-section-title">ANALYTICS</li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/" Match="NavLinkMatch.Prefix">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="nav-link-text">Dashboard</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/reports" Match="NavLinkMatch.All">
+                    <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <span class="nav-link-text">Reports</span>
+                </NavLink>
+            </li>
+            <li class="sidebar-section-title">COMPANY</li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/calendar" Match="NavLinkMatch.All">
+                    <i class="fa-solid fa-building"></i>
+                    <span class="nav-link-text">Departments</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/employees" Match="NavLinkMatch.All">
+                    <i class="fa-solid fa-user"></i>
+                    <span class="nav-link-text">Employees</span>
+                </NavLink>
+            </li>
+            <li class="sidebar-section-title">TRACKING</li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/calendar" Match="NavLinkMatch.All">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span class="nav-link-text">Calendar</span>
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="/leaderboard" Match="NavLinkMatch.All">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span class="nav-link-text">Leaderboard</span>
+                </NavLink>
+            </li>
+        </ul>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item test">
+                <NavLink class="nav-link" href="/Account/Logout">
+                    <span class="nav-link-text">Logout</span>
+                </NavLink>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="main-content">
+    <div class="content">
+        <CascadingValue Value="this">
+            @Body
+        </CascadingValue>
+    </div>
+</div>

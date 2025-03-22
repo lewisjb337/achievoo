@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "UaGdO0u0Tzw=",
+  "dgSpecHash": "RWVFNsh+dko=",
   "success": true,
   "projectFilePath": "C:\\Users\\lewis\\Documents\\GitHub\\achievoo\\achievoo\\achievoo\\achievoo.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,7 @@
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\8.0.1\\microsoft.aspnetcore.authentication.openidconnect.8.0.1.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.aspnetcore.components.webassembly.authentication\\9.0.3\\microsoft.aspnetcore.components.webassembly.authentication.9.0.3.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.bcl.memory\\9.0.0\\microsoft.bcl.memory.9.0.0.nupkg.sha512",
-    "C:\\Users\\lewis\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\lewis\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.3\\microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.identitymodel.abstractions\\8.7.0\\microsoft.identitymodel.abstractions.8.7.0.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\8.7.0\\microsoft.identitymodel.jsonwebtokens.8.7.0.nupkg.sha512",
@@ -19,6 +19,9 @@
     "C:\\Users\\lewis\\.nuget\\packages\\microsoft.io.recyclablememorystream\\3.0.0\\microsoft.io.recyclablememorystream.3.0.0.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\mimemapping\\3.0.1\\mimemapping.3.0.1.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\lewis\\.nuget\\packages\\sidio.sitemap.aspnetcore\\2.7.2\\sidio.sitemap.aspnetcore.2.7.2.nupkg.sha512",
+    "C:\\Users\\lewis\\.nuget\\packages\\sidio.sitemap.blazor\\1.1.1\\sidio.sitemap.blazor.1.1.1.nupkg.sha512",
+    "C:\\Users\\lewis\\.nuget\\packages\\sidio.sitemap.core\\2.7.3\\sidio.sitemap.core.2.7.3.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\supabase\\1.1.1\\supabase.1.1.1.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\supabase.core\\1.0.0\\supabase.core.1.0.0.nupkg.sha512",
     "C:\\Users\\lewis\\.nuget\\packages\\supabase.functions\\2.0.0\\supabase.functions.2.0.0.nupkg.sha512",

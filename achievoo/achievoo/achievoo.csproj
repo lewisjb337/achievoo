@@ -10,7 +10,14 @@
       <PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.4.1" />
       <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Authentication" Version="9.0.3" />
       <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.7.0" />
+      <PackageReference Include="Sidio.Sitemap.Blazor" Version="1.1.1" />
+      <PackageReference Include="Sidio.Sitemap.Core" Version="2.7.3" />
       <PackageReference Include="Supabase" Version="1.1.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+      <Folder Include="Services\Contracts\" />
     </ItemGroup>
 
 </Project>

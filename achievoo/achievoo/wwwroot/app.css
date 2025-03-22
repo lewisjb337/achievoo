@@ -1,0 +1,22 @@
+:root {
+    --primary: #FF5249;
+    --primary-hover: #FF371E;
+    --warning: #EDCB50;
+    --info: #3F7FCA;
+    --success: #3FCA90;
+    --danger: #ED5050;
+    
+    --background-color-light: #F7F9FC;
+    --background-color-dark: #181D27;
+    --background-color-dark-active: #29333C;
+    
+    --text-light: #B9B9BA;
+    --text-dark: #576071;
+    
+    --border: #576071;
+}
+
+body{
+    font-family: "Inter", sans-serif !important;
+    background-color: var(--background-color-light) !important;
+}

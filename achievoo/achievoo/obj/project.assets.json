@@ -59,7 +59,7 @@
           "buildTransitive/net8.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.3": {
         "type": "package",
         "compile": {
           "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -72,7 +72,7 @@
           }
         },
         "build": {
-          "buildTransitive/net6.0/_._": {}
+          "buildTransitive/net8.0/_._": {}
         }
       },
       "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
@@ -225,6 +225,60 @@
         },
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Sidio.Sitemap.AspNetCore/2.7.2": {
+        "type": "package",
+        "dependencies": {
+          "Sidio.Sitemap.Core": "2.7.1"
+        },
+        "compile": {
+          "lib/net8.0/Sidio.Sitemap.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Sidio.Sitemap.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Sidio.Sitemap.Blazor/1.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Sidio.Sitemap.AspNetCore": "2.7.2"
+        },
+        "compile": {
+          "lib/net8.0/Sidio.Sitemap.Blazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Sidio.Sitemap.Blazor.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Sidio.Sitemap.Core/2.7.3": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "9.0.3"
+        },
+        "compile": {
+          "lib/net8.0/Sidio.Sitemap.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Sidio.Sitemap.Core.dll": {
             "related": ".xml"
           }
         }
@@ -518,10 +572,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
-      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/9.0.3": {
+      "sha512": "TfaHPSe39NyL2wxkisRxXK7xvHGZYBZ+dy3r+mqGvnxKgAPdHkMu3QMQZI4pquP6W5FIQBqs8FJpWV8ffCgDqQ==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/9.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -531,21 +585,19 @@
         "THIRD-PARTY-NOTICES.TXT",
         "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "buildTransitive/net462/_._",
-        "buildTransitive/net6.0/_._",
+        "buildTransitive/net8.0/_._",
         "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
-        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -831,6 +883,62 @@
         "packageIcon.png"
       ]
     },
+    "Sidio.Sitemap.AspNetCore/2.7.2": {
+      "sha512": "Kzhh/e9XpnE6pvfWOvPF0/+L0AhG2wqpBxG5o6/oQD/5w6GsY2SrVVE/B+KRoz1s+JaqA0ZfQ3fnCXmwFsRuZQ==",
+      "type": "package",
+      "path": "sidio.sitemap.aspnetcore/2.7.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Sidio.Sitemap.AspNetCore.dll",
+        "lib/net8.0/Sidio.Sitemap.AspNetCore.xml",
+        "lib/net9.0/Sidio.Sitemap.AspNetCore.dll",
+        "lib/net9.0/Sidio.Sitemap.AspNetCore.xml",
+        "sidio.sitemap.aspnetcore.2.7.2.nupkg.sha512",
+        "sidio.sitemap.aspnetcore.nuspec"
+      ]
+    },
+    "Sidio.Sitemap.Blazor/1.1.1": {
+      "sha512": "0razg34R2q7Wu15b+rv8roTxsj9PtJGrBKfvC0OvDAjS2pqeDtkfrMpQ8wH64+2ySeI1D0zYrUhVcZpmhn3/zg==",
+      "type": "package",
+      "path": "sidio.sitemap.blazor/1.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Sidio.Sitemap.Blazor.dll",
+        "lib/net8.0/Sidio.Sitemap.Blazor.xml",
+        "lib/net9.0/Sidio.Sitemap.Blazor.dll",
+        "lib/net9.0/Sidio.Sitemap.Blazor.xml",
+        "sidio.sitemap.blazor.1.1.1.nupkg.sha512",
+        "sidio.sitemap.blazor.nuspec"
+      ]
+    },
+    "Sidio.Sitemap.Core/2.7.3": {
+      "sha512": "N3D/AdjPd9PB6P/4IEtlTrwJFkZ3slS6PoRQbuk93Tr4XIq3uZpaKW3k9Gn/ygjcjEqQP8E8c9BPupyhuPaiQw==",
+      "type": "package",
+      "path": "sidio.sitemap.core/2.7.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "icon.png",
+        "lib/net8.0/Sidio.Sitemap.Core.dll",
+        "lib/net8.0/Sidio.Sitemap.Core.xml",
+        "lib/net9.0/Sidio.Sitemap.Core.dll",
+        "lib/net9.0/Sidio.Sitemap.Core.xml",
+        "lib/netstandard2.0/Sidio.Sitemap.Core.dll",
+        "lib/netstandard2.0/Sidio.Sitemap.Core.xml",
+        "sidio.sitemap.core.2.7.3.nupkg.sha512",
+        "sidio.sitemap.core.nuspec"
+      ]
+    },
     "Supabase/1.1.1": {
       "sha512": "LW9O05IiZBW3YUDT/gndPKvzT3I7PVgx0j87+AdJu7mT42m7oh2nOnjuDR9pU0E9FE2Ke/QGovrH/u5OjGn7lg==",
       "type": "package",
@@ -1074,6 +1182,8 @@
       "Auth0.AspNetCore.Authentication >= 1.4.1",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 9.0.3",
       "Microsoft.IdentityModel.Protocols.OpenIdConnect >= 8.7.0",
+      "Sidio.Sitemap.Blazor >= 1.1.1",
+      "Sidio.Sitemap.Core >= 2.7.3",
       "Supabase >= 1.1.1"
     ]
   },
@@ -1140,6 +1250,14 @@
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": {
             "target": "Package",
             "version": "[8.7.0, )"
+          },
+          "Sidio.Sitemap.Blazor": {
+            "target": "Package",
+            "version": "[1.1.1, )"
+          },
+          "Sidio.Sitemap.Core": {
+            "target": "Package",
+            "version": "[2.7.3, )"
           },
           "Supabase": {
             "target": "Package",

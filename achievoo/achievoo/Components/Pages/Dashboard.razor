@@ -1,7 +1,14 @@
-﻿@attribute [Authorize]
+﻿@using Sidio.Sitemap.Blazor
 
 @page "/"
 
-<PageTitle>Home</PageTitle>
+@attribute [Authorize]
+@attribute [Sitemap]
 
-Hello @_username
+@rendermode InteractiveServer
+
+<PageTitle>Achievoo - Dashboard</PageTitle>
+
+<div class="">
+    Content test
+</div>

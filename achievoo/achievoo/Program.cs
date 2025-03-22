@@ -5,6 +5,9 @@ using Auth0.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
+using Sidio.Sitemap.AspNetCore;
+using Sidio.Sitemap.AspNetCore.Middleware;
+using Sidio.Sitemap.Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,11 @@ builder.Services.AddAuth0WebAppAuthentication(options => {
 
 builder.Services.ConfigureSameSiteNoneCookies();
 builder.Services.AddControllersWithViews();
+
+builder.Services
+    .AddHttpContextAccessor()
+    .AddDefaultSitemapServices<HttpContextBaseUrlProvider>();
+
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 var app = builder.Build();
@@ -29,6 +37,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseSitemap();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseCookiePolicy();

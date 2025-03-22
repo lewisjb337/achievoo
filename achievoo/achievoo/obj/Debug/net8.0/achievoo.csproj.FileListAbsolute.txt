@@ -49,3 +49,9 @@ C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Micr
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\achievoo.sourcelink.json
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidio.Sitemap.AspNetCore.dll
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidio.Sitemap.Blazor.dll
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidio.Sitemap.Core.dll
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\achievoo.MvcApplicationPartsAssemblyInfo.cs

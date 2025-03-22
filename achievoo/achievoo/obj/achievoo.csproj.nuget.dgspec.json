@@ -64,6 +64,14 @@
               "target": "Package",
               "version": "[8.7.0, )"
             },
+            "Sidio.Sitemap.Blazor": {
+              "target": "Package",
+              "version": "[1.1.1, )"
+            },
+            "Sidio.Sitemap.Core": {
+              "target": "Package",
+              "version": "[2.7.3, )"
+            },
             "Supabase": {
               "target": "Package",
               "version": "[1.1.1, )"
