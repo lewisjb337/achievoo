@@ -1,6 +1,6 @@
 :root {
     --primary: #FF5249;
-    --primary-hover: #FF371E;
+    --primary-hover: #DF372D;
     --warning: #EDCB50;
     --info: #3F7FCA;
     --success: #3FCA90;
@@ -12,11 +12,114 @@
     
     --text-light: #B9B9BA;
     --text-dark: #576071;
+    --headings: #121519;
     
     --border: #576071;
 }
 
-body{
+body {
     font-family: "Inter", sans-serif !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    line-height: 1.5rem !important;
     background-color: var(--background-color-light) !important;
+    color: var(--text-dark) !important;
+}
+
+/*TYPOGRAPHY*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    color: var(--headings) !important;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+}
+
+h2 {
+    font-size: 2rem !important;
+}
+
+h3 {
+    font-size: 1.75rem !important;
+}
+
+h4 {
+    font-size: 1.5rem !important;
+}
+
+h5 {
+    font-size: 1.25rem !important;
+}
+
+h6 {
+    font-size: 1rem !important;
+}
+
+.text-danger {
+    color: var(--danger) !important;
+    font-size: 1.25rem !important;
+}
+
+/*CARD*/
+.card {
+    padding: 2.375rem !important;
+    background-color: #FFFFFF !important;
+    border-radius: 36px !important;
+    border: none !important;
+}
+
+/*BUTTONS*/
+.custom-button, .custom-button-outline {
+    border-radius: 13px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.4;
+    transition: all 0.2s;
+}
+
+.custom-button i, .custom-button-outline i {
+    margin-right: 10px;
+}
+
+.custom-button {
+    background-color: var(--primary);
+    color: #FFFFFF;
+    border: 1px solid var(--primary);
+}
+
+.custom-button:hover {
+    background-color: var(--primary-hover);
+    border: 1px solid var(--primary-hover);
+}
+
+.custom-button-outline {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.custom-button-outline i {
+    color: var(--primary);
+}
+
+.custom-button-outline:hover {
+    background-color: var(--primary-hover);
+    color: #FFFFFF;
+    border: 1px solid var(--primary-hover);
+}
+
+.custom-button-outline:hover i {
+    color: #FFFFFF !important;
+}
+
+/*MISC*/
+.page-header h2 i {
+    color: var(--primary);
+    margin-right: 10px;
 }

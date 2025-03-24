@@ -1,5 +1,9 @@
 using achievoo.AuthenticationStateSyncer;
 using achievoo.Components;
+using achievoo.Services;
+using achievoo.Services.Contracts;
+using achievoo.Services.Contracts.Supabase;
+using achievoo.Services.Supabase;
 using achievoo.Support;
 using Auth0.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication;
@@ -14,6 +18,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthorizationCore();
 builder.Services.AddCascadingAuthenticationState();
 builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAuthenticationStateProvider>();
+
+builder.Services.AddSingleton<SupabaseService>();
+
+builder.Services.AddScoped<ISupabaseEmployeeService, SupabaseEmployeeService>();
 
 builder.Services.AddAuth0WebAppAuthentication(options => {
         options.Domain = builder.Configuration["Auth0:Domain"]!;

@@ -6,14 +6,14 @@
         border-radius: 10px !important;
         padding: 12px;
         font-weight: 400;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 20px;
         display: flex;
         align-items: center;
     }
 
     .nav-pills .nav-link.active .nav-link-text {
-        color: var(--primary) !important;
+        color: #FFFFFF !important;
     }
 
     .nav-link{
@@ -39,14 +39,14 @@
 
 <div class="sidebar">
     <a href="/" class="text-center text-white fs-3 text-decoration-none">
-        <img src="/images/logo-bg-transparent-text-white.png" alt="Achievoo Logo" width="150">
+        <img src="/images/logo-bg-transparent-text-white.png" alt="Achievoo Logo" width="175">
     </a>
 
     <div class="sidebar-content">
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="sidebar-section-title">ANALYTICS</li>
             <li class="nav-item">
-                <NavLink class="nav-link" href="/" Match="NavLinkMatch.Prefix">
+                <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
                     <i class="fa-solid fa-chart-pie"></i>
                     <span class="nav-link-text">Dashboard</span>
                 </NavLink>
@@ -86,7 +86,14 @@
         </ul>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item test">
+                <NavLink class="nav-link" href="/settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="nav-link-text">Settings</span>
+                </NavLink>
+            </li>
+            <li class="nav-item test">
                 <NavLink class="nav-link" href="/Account/Logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
                     <span class="nav-link-text">Logout</span>
                 </NavLink>
             </li>
