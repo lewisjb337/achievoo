@@ -85,3 +85,104 @@
 .header-icons[b-hi9t775e8k] {
     color: var(--text-light);
 }
+/* _content/achievoo/Components/Modules/EmployeeCard.razor.rz.scp.css */
+.employee-card[b-rdhcc6s6ck] {
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container[b-rdhcc6s6ck] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-header[b-rdhcc6s6ck] {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-header img[b-rdhcc6s6ck] {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.profile-header h3[b-rdhcc6s6ck] {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.profile-header p[b-rdhcc6s6ck] {
+    margin: 0;
+    font-size: 16px;
+    color: #576071;
+}
+
+.extra-info[b-rdhcc6s6ck] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    color: #A0A7B0;
+    font-size: 14px;
+    padding-right: 60px;
+}
+
+.extra-info i[b-rdhcc6s6ck] { margin-right: 5px; }
+
+.details[b-rdhcc6s6ck] {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.info[b-rdhcc6s6ck] {
+    background: #EDF1f5;
+    padding: 8px 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    transition: background 0.3s ease;
+}
+
+.info i[b-rdhcc6s6ck] {
+    color: #FF5249;
+    font-size: 16px;
+}
+
+.info:hover[b-rdhcc6s6ck] {
+    background: #D3DDE6;
+    cursor: pointer;
+}
+
+.side-button[b-rdhcc6s6ck] {
+    position: absolute;
+    top: 0;
+    right: -15px;
+    height: 100%;
+    width: 50px;
+    background-color: #FF5249;
+    color: white;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.side-button i[b-rdhcc6s6ck] { font-size: 20px; }
+.side-button:hover[b-rdhcc6s6ck] { background-color: #D9443F; }

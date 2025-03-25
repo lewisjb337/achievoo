@@ -55,3 +55,4 @@ C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidi
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidio.Sitemap.Blazor.dll
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidio.Sitemap.Core.dll
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\achievoo.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\scopedcss\Components\Modules\EmployeeCard.razor.rz.scp.css

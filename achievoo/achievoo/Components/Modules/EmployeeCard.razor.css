@@ -1,0 +1,100 @@
+﻿.employee-card {
+    padding: 2rem;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-header img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.profile-header h3 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.profile-header p {
+    margin: 0;
+    font-size: 16px;
+    color: #576071;
+}
+
+.extra-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    color: #A0A7B0;
+    font-size: 14px;
+    padding-right: 60px;
+}
+
+.extra-info i { margin-right: 5px; }
+
+.details {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.info {
+    background: #EDF1f5;
+    padding: 8px 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    transition: background 0.3s ease;
+}
+
+.info i {
+    color: #FF5249;
+    font-size: 16px;
+}
+
+.info:hover {
+    background: #D3DDE6;
+    cursor: pointer;
+}
+
+.side-button {
+    position: absolute;
+    top: 0;
+    right: -15px;
+    height: 100%;
+    width: 50px;
+    background-color: #FF5249;
+    color: white;
+    border: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.side-button i { font-size: 20px; }
+.side-button:hover { background-color: #D9443F; }

@@ -53,3 +53,7 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-hi9t775e8k
+
+[C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Modules/EmployeeCard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xNb2R1bGVzXEVtcGxveWVlQ2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-rdhcc6s6ck

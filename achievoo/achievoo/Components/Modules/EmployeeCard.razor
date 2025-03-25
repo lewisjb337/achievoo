@@ -1,0 +1,35 @@
+﻿<div class="card employee-card">
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="https://ui-avatars.com/api/?background=FF5249&color=FFFFFF&rounded=true&name=@FirstName+@LastName&size=64&font-size=0.5&bold=true&format=svg" alt="User initials">
+            <div>
+                <h3>@FirstName @LastName</h3>
+                <p>@JobTitle</p>
+            </div>
+        </div>
+        <div class="extra-info">
+            <p class="m-0"><i class="fa-solid fa-envelope"></i> @Email</p>
+            <p class="m-0"><i class="fa-solid fa-location-dot"></i> @Location</p>
+        </div>
+    </div>
+    <button class="side-button">
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <div class="details">
+        <div class="info">
+            <i class="fa-solid fa-building"></i>
+            <span>Department:</span>
+            <strong>@Department</strong>
+        </div>
+        <div class="info">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>Employment Type:</span>
+            <strong>@EmploymentType</strong>
+        </div>
+        <div class="info">
+            <i class="fa-solid fa-calendar"></i>
+            <span>Joined:</span>
+            <strong>@Joined.ToShortDateString()</strong>
+        </div>
+    </div>
+</div>
