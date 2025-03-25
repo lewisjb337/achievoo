@@ -4,24 +4,27 @@ namespace achievoo.Services;
 
 public class SupabaseService
 {
-    public Client? SupabaseClient { get; }
-    
+    public Client SupabaseClient { get; }
+
     public SupabaseService(IConfiguration configuration)
     {
         var url = configuration["Supabase:Url"];
         var key = configuration["Supabase:Key"];
 
-        if (url == null || key == null)
+        if (string.IsNullOrWhiteSpace(url) || string.IsNullOrWhiteSpace(key))
         {
-            return;
+            throw new ArgumentNullException(nameof(configuration));
         }
-        
+
         SupabaseClient = new Client(url, key, new SupabaseOptions
         {
             AutoRefreshToken = true,
             AutoConnectRealtime = true
         });
+    }
 
-        SupabaseClient.InitializeAsync().Wait();
+    public async Task InitializeAsync()
+    {
+        await SupabaseClient.InitializeAsync();
     }
 }

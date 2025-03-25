@@ -1,0 +1,106 @@
+﻿@using achievoo.Components.Modules
+
+<Modal @ref="_modal" Title="Create New Employee" ButtonClass="custom-button-success" ActionName="Create"
+       OnAction="async () => await CreateEmployee()" OnModalClosed="OnModalClosed" IsDisabled="_isDisabled" UpdateState="true" ShowSubmit="true">
+       <BodyContent>
+              <div class="row g-2">
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="firstNameInput" placeholder="" @bind-Value="@_firstName" /> 
+                                   <label for="firstNameInput">First Name</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_firstName))
+                                   {
+                                          <div class="text-danger-small">First Name is required</div>
+                                   }
+                            </div>
+                     </div>
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="lastNameInput" placeholder="" @bind-Value="@_lastName" />
+                                   <label for="lastNameInput">Last Name</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_lastName))
+                                   {
+                                          <div class="text-danger-small">Last Name is required</div>
+                                   }
+                            </div>
+                     </div>
+              </div>
+              <div class="form-floating mb-3">
+                     <InputText type="email" class="form-control" id="emailAddressInput" placeholder="" @bind-Value="@_emailAddress" />
+                     <label for="emailAddressInput">Email Address</label>
+                     @if (_isAddAttempted && !ValidationService.IsValidEmail(_emailAddress))
+                     {
+                            <div class="text-danger-small">Email Address is @(string.IsNullOrEmpty(_emailAddress) ? "required" : "invalid")</div>
+                     }
+              </div>
+              <div class="row g-2">
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="jobTitleInput" placeholder="" @bind-Value="@_jobTitle" />
+                                   <label for="jobTitleInput">Job Title</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_jobTitle))
+                                   {
+                                          <div class="text-danger-small">Job Title is required</div>
+                                   }
+                            </div>
+                     </div>
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="departmentInput" placeholder="" @bind-Value="@_department" />
+                                   <label for="departmentInput">Department</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_department))
+                                   {
+                                          <div class="text-danger-small">Department is required</div>
+                                   }
+                            </div>
+                     </div>
+              </div>
+              <div class="row g-2">
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputSelect class="form-select" id="employmentTypeSelect" aria-label="Employment Type Selection" @bind-Value="_employmentType">
+                                          <option value="" disabled>Select an employment type</option>
+                                          <option value="Full-time">Full-time</option>
+                                          <option value="Part-time">Part-time</option>
+                                          <option value="Contract">Contract</option>
+                                          <option value="Apprenticeship">Apprenticeship</option>
+                                   </InputSelect>
+
+                                   <label for="employmentTypeSelect">Select an employment type</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_employmentType))
+                                   {
+                                          <div class="text-danger-small">Employment Type is required</div>
+                                   }
+                            </div>
+                     </div>
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="locationInput" placeholder="" @bind-Value="@_location" />
+                                   <label for="locationInput">Location</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_location))
+                                   {
+                                          <div class="text-danger-small">Location is required</div>
+                                   }
+                            </div>
+                     </div>
+              </div>
+              <div class="form-floating mb-3">
+                     <InputDate class="form-control" id="joinedCompanyInput" placeholder="" @bind-Value="@_joinedCompany" />
+                     <label for="joinedCompanyInput">Joined Company</label>
+              </div>
+              <div class="form-floating mb-3">
+                     <InputSelect class="form-select" id="roleSelect" aria-label="Role Selection" @bind-Value="_role">
+                            <option value="" disabled>Select a role</option>
+                            <option value="Administrator">Administrator</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Employee">Employee</option>
+                     </InputSelect>
+
+                     <label for="roleSelect">Select a role</label>
+                     @if (_isAddAttempted && string.IsNullOrWhiteSpace(_role))
+                     {
+                            <div class="text-danger-small">Role is required</div>
+                     }
+              </div>
+       </BodyContent>
+</Modal>

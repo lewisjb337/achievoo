@@ -23,26 +23,33 @@ builder.Services.AddSingleton<SupabaseService>();
 
 builder.Services.AddScoped<ISupabaseEmployeeService, SupabaseEmployeeService>();
 
-builder.Services.AddAuth0WebAppAuthentication(options => {
-        options.Domain = builder.Configuration["Auth0:Domain"]!;
-        options.ClientId = builder.Configuration["Auth0:ClientId"]!;
+builder.Services.AddScoped<IValidationService, ValidationService>();
+
+builder.Services.AddAuth0WebAppAuthentication(options =>
+{
+    options.Domain = builder.Configuration["Auth0:Domain"]!;
+    options.ClientId = builder.Configuration["Auth0:ClientId"]!;
 });
 
 builder.Services.ConfigureSameSiteNoneCookies();
 builder.Services.AddControllersWithViews();
-
-builder.Services
-    .AddHttpContextAccessor()
-    .AddDefaultSitemapServices<HttpContextBaseUrlProvider>();
-
+builder.Services.AddHttpContextAccessor().AddDefaultSitemapServices<HttpContextBaseUrlProvider>();
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 
 var app = builder.Build();
 
-if (!app.Environment.IsDevelopment())
+using (var scope = app.Services.CreateScope())
 {
-    app.UseExceptionHandler("/error-efce21ca-da14-4540-abe2-2bad0d7f55e5", createScopeForErrors: true);
-    app.UseHsts();
+    var supabaseService = scope.ServiceProvider.GetRequiredService<SupabaseService>();
+    try
+    {
+        await supabaseService.InitializeAsync();
+        Console.WriteLine("SupabaseClient initialized successfully.");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error initializing SupabaseClient: {ex.Message}");
+    }
 }
 
 app.UseSitemap();

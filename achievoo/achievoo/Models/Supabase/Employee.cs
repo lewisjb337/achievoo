@@ -3,7 +3,7 @@ using Supabase.Postgrest.Models;
 
 namespace achievoo.Models.Supabase;
 
-[Table("Employee")]
+[Table("Employees")]
 public class Employee : BaseModel
 {
     [PrimaryKey("Id")] 
@@ -27,18 +27,18 @@ public class Employee : BaseModel
     [Column("EmploymentType")] 
     public string EmploymentType { get; set; } = string.Empty;
     
-    [Column("Status")] 
-    public string Status { get; set; } = string.Empty;
-    
     [Column("Location")] 
     public string Location { get; set; } = string.Empty;
     
     [Column("JoinedCompany")] 
-    public DateTime JoinedCompany { get; set; } =  DateTime.Now;
+    public DateTime JoinedCompany { get; set; } = DateTime.Now;
+    
+    [Column("Role")] 
+    public string Role { get; set; } = string.Empty;
     
     [Column("DateCreated")] 
-    public DateTime DateCreated { get; set; } =  DateTime.Now;
+    public DateTime DateCreated { get; set; } = DateTime.Now;
     
     [Column("LastModified")] 
-    public DateTime LastModified { get; set; } =  DateTime.Now;
+    public DateTime LastModified { get; set; } = DateTime.Now;
 }

@@ -1,0 +1,23 @@
+﻿<div class="modal @_modalClass" tabindex="-1" role="dialog" style="display: @_modalDisplay">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">@Title</div>
+            <div class="modal-body">
+                @BodyContent
+            </div>
+            <div class="modal-footer">
+                @if (ShowSubmit)
+                {
+                    <button class="@ButtonClass" disabled="@IsDisabled" data-dismiss="modal" @onclick="OnAction">@(IsDisabled ? "Please Wait..." : ActionName)</button>
+                }
+                
+                <button class="custom-button-secondary" disabled="@IsDisabled" data-dismiss="modal" @onclick="Close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (_showBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
