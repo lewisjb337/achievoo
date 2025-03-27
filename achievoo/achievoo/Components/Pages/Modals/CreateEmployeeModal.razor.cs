@@ -10,10 +10,10 @@ public partial class CreateEmployeeModal : ComponentBase
 {
     
     [Inject]
-    public IValidationService ValidationService { get; set; }
+    public IValidationService? ValidationService { get; set; }
     
     [Inject]
-    public ISupabaseEmployeeService SupabaseEmployeeService { get; set; }
+    public ISupabaseEmployeeService? SupabaseEmployeeService { get; set; }
     
     [Parameter]
     public EventCallback<bool> OnModalClosed { get; set; }
@@ -22,7 +22,6 @@ public partial class CreateEmployeeModal : ComponentBase
     
     private bool _isDisabled = false;
     private bool _isAddAttempted = false;
-    private bool _hasValidationErrors = false;
     
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
@@ -48,11 +47,10 @@ public partial class CreateEmployeeModal : ComponentBase
     public async Task CreateEmployee()
     {
         _isAddAttempted = true;
-        _hasValidationErrors = false;
         
         var isValid = !string.IsNullOrWhiteSpace(_firstName) &&
                       !string.IsNullOrWhiteSpace(_lastName) &&
-                      ValidationService.IsValidEmail(_emailAddress) &&
+                      ValidationService!.IsValidEmail(_emailAddress) &&
                       !string.IsNullOrWhiteSpace(_jobTitle) &&
                       !string.IsNullOrWhiteSpace(_department) &&
                       !string.IsNullOrWhiteSpace(_employmentType) &&
@@ -63,9 +61,7 @@ public partial class CreateEmployeeModal : ComponentBase
 
         if (isValid)
         {
-            _hasValidationErrors = false;
-
-            await SupabaseEmployeeService.CreateEmployeeAsync(new CreateEmployeeRequest(
+            await SupabaseEmployeeService!.CreateEmployeeAsync(new CreateEmployeeRequest(
                 _firstName,
                 _lastName,
                 _emailAddress,
@@ -82,10 +78,6 @@ public partial class CreateEmployeeModal : ComponentBase
             await _modal!.Close();
 
             StateHasChanged();
-        }
-        else
-        {
-            _hasValidationErrors = true;
         }
 
         _isDisabled = false;

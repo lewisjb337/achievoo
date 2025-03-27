@@ -28,7 +28,7 @@
               <div class="form-floating mb-3">
                      <InputText type="email" class="form-control" id="emailAddressInput" placeholder="" @bind-Value="@_emailAddress" />
                      <label for="emailAddressInput">Email Address</label>
-                     @if (_isAddAttempted && !ValidationService.IsValidEmail(_emailAddress))
+                     @if (_isAddAttempted && !ValidationService!.IsValidEmail(_emailAddress))
                      {
                             <div class="text-danger-small">Email Address is @(string.IsNullOrEmpty(_emailAddress) ? "required" : "invalid")</div>
                      }

@@ -13,7 +13,7 @@ public class SupabaseEmployeeService(SupabaseService supabaseService, IAuth0Serv
     // ReSharper disable once FieldCanBeMadeReadOnly.Local
     private Client? _supabase = supabaseService.SupabaseClient;
 
-    public async Task<IEnumerable<Employee>> GetEmployeesAsync()
+    public async Task<IEnumerable<Employee>?> GetEmployeesAsync()
     {
         var companyId = await auth0Service.GetOnboardingGuidAsync();
         

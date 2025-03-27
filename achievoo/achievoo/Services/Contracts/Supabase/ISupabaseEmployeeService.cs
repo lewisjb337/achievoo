@@ -5,7 +5,7 @@ namespace achievoo.Services.Contracts.Supabase;
 
 public interface ISupabaseEmployeeService
 {
-    Task<IEnumerable<Employee>> GetEmployeesAsync();
+    Task<IEnumerable<Employee>?> GetEmployeesAsync();
     
     Task<Employee> GetEmployeeByIdAsync(GetEmployeeByIdRequest request);
     

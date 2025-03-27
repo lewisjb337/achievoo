@@ -8,9 +8,9 @@ namespace achievoo.Components.Pages;
 public partial class EmployeeDetails : ComponentBase
 {
     [Inject]
-    public ISupabaseEmployeeService SupabaseEmployeeService { get; set; }
+    public ISupabaseEmployeeService? SupabaseEmployeeService { get; set; }
     
-    private Employee  _employee { get; set; }
+    private Employee? Employee { get; set; }
     
     [Parameter]
     public int Id { get; set; }
@@ -26,6 +26,6 @@ public partial class EmployeeDetails : ComponentBase
 
     private async Task LoadData()
     {
-        _employee = await SupabaseEmployeeService.GetEmployeeByIdAsync(new GetEmployeeByIdRequest(Id));
+        Employee = await SupabaseEmployeeService!.GetEmployeeByIdAsync(new GetEmployeeByIdRequest(Id));
     }
 }
