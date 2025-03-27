@@ -5,6 +5,9 @@ namespace achievoo.Components.Modules;
 public partial class EmployeeCard : ComponentBase
 {
     [Parameter] 
+    public int Id { get; set; }
+    
+    [Parameter] 
     public string FirstName { get; set; } = string.Empty;
     
     [Parameter] 

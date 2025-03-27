@@ -48,8 +48,9 @@ else
         {
             foreach (var employee in _employees.Filter(SearchText, x => x.FirstName))
             {
-                <div class="col-4">
+                <div class="col-6">
                     <EmployeeCard 
+                        Id="@employee.Id"
                         FirstName="@employee.FirstName"
                         LastName="@employee.LastName"
                         JobTitle="@employee.JobTitle"

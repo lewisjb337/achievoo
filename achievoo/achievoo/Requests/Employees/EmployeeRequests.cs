@@ -8,4 +8,4 @@ public record CreateEmployeeRequest(string FirstName, string LastName, string Em
 public record UpdateEmployeeRequest(int Id, string FirstName, string LastName, string EmailAddress, string JobTitle, 
     string Department, string EmploymentType, string Location, DateTime JoinedCompany, string Role);
     
-public record DeleteEmployeeRequest(int Id);
+public record DeleteEmployeeRequest(int Id, string Auth0Id);

@@ -1,18 +1,25 @@
 ﻿using achievoo.Models.Supabase;
+using achievoo.Requests.Auth0;
 using achievoo.Requests.Employees;
+using achievoo.Services.Contracts;
 using achievoo.Services.Contracts.Supabase;
+using Microsoft.AspNetCore.Components;
 using Supabase;
 
 namespace achievoo.Services.Supabase;
 
-public class SupabaseEmployeeService(SupabaseService supabaseService) : ISupabaseEmployeeService
+public class SupabaseEmployeeService(SupabaseService supabaseService, IAuth0Service auth0Service) : ISupabaseEmployeeService
 {
+    // ReSharper disable once FieldCanBeMadeReadOnly.Local
     private Client? _supabase = supabaseService.SupabaseClient;
 
     public async Task<IEnumerable<Employee>> GetEmployeesAsync()
     {
+        var companyId = await auth0Service.GetOnboardingGuidAsync();
+        
         var results = await _supabase!
             .From<Employee>()
+            .Where(x => x.CompanyGuid == companyId)
             .Get();
         
         return results.Models;
@@ -20,9 +27,12 @@ public class SupabaseEmployeeService(SupabaseService supabaseService) : ISupabas
 
     public async Task<Employee> GetEmployeeByIdAsync(GetEmployeeByIdRequest request)
     {
+        var companyId = await auth0Service.GetOnboardingGuidAsync();
+        
         var result = await _supabase!
             .From<Employee>()
             .Where(x => x.Id == request.Id)
+            .Where(x => x.CompanyGuid == companyId)
             .Get();
         
         return result.Model!;
@@ -30,6 +40,17 @@ public class SupabaseEmployeeService(SupabaseService supabaseService) : ISupabas
 
     public async Task<bool> CreateEmployeeAsync(CreateEmployeeRequest request)
     {
+        var companyId = await auth0Service.GetOnboardingGuidAsync();
+
+        var userId = await auth0Service.CreateUserAsync(new Auth0CreateUserRequest
+        {
+            Email = request.EmailAddress,
+            FirstName = request.FirstName,
+            LastName = request.LastName,
+            JobTitle = request.JobTitle,
+            Role = request.Role
+        });
+
         var model = new Employee
         {
             FirstName = request.FirstName,
@@ -41,6 +62,8 @@ public class SupabaseEmployeeService(SupabaseService supabaseService) : ISupabas
             Location = request.Location,
             JoinedCompany = request.JoinedCompany,
             Role = request.Role,
+            CompanyGuid = companyId!,
+            Auth0Id = userId,
             DateCreated = DateTime.Now
         };
 
@@ -48,19 +71,19 @@ public class SupabaseEmployeeService(SupabaseService supabaseService) : ISupabas
             .From<Employee>()
             .Insert(model);
         
-        // TODO: Create an entry into Auth0 for this user too, with appropriate role and accepted status
-        
         return result.ResponseMessage!.IsSuccessStatusCode;
     }
 
     public async Task<bool> UpdateEmployeeAsync(UpdateEmployeeRequest request)
     {
+        var companyId = await auth0Service.GetOnboardingGuidAsync();
+
         var result = await _supabase!
             .From<Employee>()
             .Where(x => x.Id == request.Id)
+            .Where(x => x.CompanyGuid == companyId)
             .Set(x => x.FirstName, request.FirstName)
             .Set(x => x.LastName, request.LastName)
-            .Set(x => x.EmailAddress, request.EmailAddress)
             .Set(x => x.JobTitle, request.JobTitle)
             .Set(x => x.Department, request.Department)
             .Set(x => x.EmploymentType, request.EmploymentType)
@@ -70,20 +93,21 @@ public class SupabaseEmployeeService(SupabaseService supabaseService) : ISupabas
             .Set(x => x.LastModified, DateTime.Now)
             .Update();
         
-        // TODO: Update Auth0 entry for this user when changes made
-        
         return result.ResponseMessage!.IsSuccessStatusCode;
     }
 
-    public Task<bool> DeleteEmployeeAsync(DeleteEmployeeRequest request)
+    public async Task<bool> DeleteEmployeeAsync(DeleteEmployeeRequest request)
     {
+        var companyId = await auth0Service.GetOnboardingGuidAsync();
+
         var result = _supabase!
             .From<Employee>()
             .Where(x => x.Id == request.Id)
+            .Where(x => x.CompanyGuid == companyId)
             .Delete();
+
+        await auth0Service.DeleteUserAsync(request.Auth0Id);
         
-        // TODO: Delete Auth0 entry for this user when changes made
-        
-        return Task.FromResult(result.IsCompleted);
+        return result.IsCompleted;
     }
 }

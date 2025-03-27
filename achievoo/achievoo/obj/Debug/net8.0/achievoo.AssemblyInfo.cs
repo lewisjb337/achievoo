@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("achievoo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10d66956d0779483dbb9f87f2805a45eecce0fde")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9b6b9c5b3d12734baaedfed8668c8e70db5ee0fb")]
 [assembly: System.Reflection.AssemblyProductAttribute("achievoo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("achievoo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

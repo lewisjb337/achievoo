@@ -21,8 +21,10 @@ builder.Services.AddScoped<AuthenticationStateProvider, PersistingRevalidatingAu
 
 builder.Services.AddSingleton<SupabaseService>();
 
-builder.Services.AddScoped<ISupabaseEmployeeService, SupabaseEmployeeService>();
+builder.Services.AddHttpClient<IAuth0Service, Auth0Service>();
 
+builder.Services.AddScoped<IAuth0Service, Auth0Service>();
+builder.Services.AddScoped<ISupabaseEmployeeService, SupabaseEmployeeService>();
 builder.Services.AddScoped<IValidationService, ValidationService>();
 
 builder.Services.AddAuth0WebAppAuthentication(options =>

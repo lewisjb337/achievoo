@@ -1,0 +1,39 @@
+﻿@page "/employee/details/{Id:int}"
+@using Sidio.Sitemap.Blazor
+
+@attribute [Authorize]
+@attribute [Sitemap]
+
+@rendermode InteractiveServer
+
+<PageTitle>Achievoo - Employee Details</PageTitle>
+
+@if (_isLoading)
+{
+    <div id="loading-overlay">
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <div class="loading-text">Loading</div>
+        </div>
+    </div>
+}
+else
+{
+    if (_employee is not null)
+    {
+        // Section 1 (span whole row)
+        // Show general details
+        
+        // Section 2 (span half row)
+        // Show upcoming review date 
+        
+        // Section 3 (span half row)
+        // Show current targets/goals
+        
+        // Section 4 (span half row)
+        // Show statistics section using previous review data to show performance and target achievement rate
+        
+        // Section 5 (span half row)
+        // Show gamification section with current rank, points, company leaderboard place
+    }
+}

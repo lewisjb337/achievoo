@@ -182,7 +182,9 @@
     align-items: center;
     justify-content: center;
     transition: background 0.3s ease;
+    text-decoration: none;
 }
 
 .side-button i[b-rdhcc6s6ck] { font-size: 20px; }
 .side-button:hover[b-rdhcc6s6ck] { background-color: #D9443F; }
+/* _content/achievoo/Components/Pages/EmployeeDetails.razor.rz.scp.css */
