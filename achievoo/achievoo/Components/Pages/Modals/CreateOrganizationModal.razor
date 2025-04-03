@@ -1,0 +1,59 @@
+﻿@using achievoo.Components.Modules
+
+<Modal @ref="_modal" Title="Create New Organization" ButtonClass="custom-button-success" ActionName="Create"
+       OnAction="async () => await CreateOrganization()" OnModalClosed="OnModalClosed" IsDisabled="_isDisabled" UpdateState="true" ShowSubmit="true">
+       <BodyContent>
+              <div class="row g-2">
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="organizationNameInput" placeholder="" @bind-Value="@_name" /> 
+                                   <label for="organizationNameInput">Organization Name</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_name))
+                                   {
+                                          <div class="text-danger-small">Organization Name is required</div>
+                                   }
+                            </div>
+                     </div>
+                     <div class="col-md">
+                            <div class="form-floating mb-3">
+                                   <InputText type="text" class="form-control" id="displayNameInput" placeholder="" @bind-Value="@_displayName" />
+                                   <label for="displayNameInput">Display Name</label>
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_displayName))
+                                   {
+                                          <div class="text-danger-small">Display Name is required</div>
+                                   }
+                            </div>
+                     </div>
+              </div>
+              <div class="form-floating mb-3">
+                     <InputText type="text" class="form-control" id="logoUrlInput" placeholder="" @bind-Value="@_logoUrl" />
+                     <label for="logoUrlInput">Logo URL</label>
+                     @if (_isAddAttempted && string.IsNullOrWhiteSpace(_logoUrl))
+                     {
+                            <div class="text-danger-small">Logo URL is required</div>
+                     }
+              </div>
+              <div class="row g-2">
+                     <div class="col-md">
+                            <div class="mb-3">
+                                   <label for="primaryColorInput" class="form-label">Primary Color</label>
+                                   <input type="color" class="form-control form-control-color w-100" id="primaryColorInput" @bind="_primaryColor">
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_primaryColor))
+                                   {
+                                          <div class="text-danger-small">Primary Color is required</div>
+                                   }
+                            </div>
+                     </div>
+                     <div class="col-md">
+                            <div class="mb-3">
+                                   <label for="backgroundColorInput" class="form-label">Background Color</label>
+                                   <input type="color" class="form-control form-control-color w-100" id="backgroundColorInput" @bind="_backgroundColor">
+                                   @if (_isAddAttempted && string.IsNullOrWhiteSpace(_backgroundColor))
+                                   {
+                                          <div class="text-danger-small">Background Color is required</div>
+                                   }
+                            </div>
+                     </div>
+              </div>
+       </BodyContent>
+</Modal>

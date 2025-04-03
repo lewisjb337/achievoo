@@ -1,7 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Nodes;
 using achievoo.Models.Auth0.Organization;
 using achievoo.Requests.Auth0;
 using achievoo.Services.Contracts;
@@ -216,7 +215,7 @@ public class Auth0Service(HttpClient httpClient, IConfiguration configuration, A
         return organizations.EnumerateArray().Any() ? organizations[0].GetProperty("id").GetString() : null;
     }
     
-    private async Task<bool> CheckIfUserHasOrganizationAsync()
+    public async Task<bool> CheckIfUserHasOrganizationAsync()
     {
         var userEmail = await GetCurrentUserEmailAsync();
 
@@ -233,38 +232,50 @@ public class Auth0Service(HttpClient httpClient, IConfiguration configuration, A
     private async Task<bool> IsOrganizationNameUniqueAsync(string name)
     {
         var client = await GetAuthenticatedClientAsync();
-        var url = $"https://{_domain}/api/v2/organizations?name={Uri.EscapeDataString(name)}";
+        var url = $"https://{_domain}/api/v2/organizations?per_page=100";
 
         var response = await client.GetAsync(url);
 
         if (!response.IsSuccessStatusCode)
         {
-            return false;
+            throw new Exception($"Failed to retrieve organizations: {response.StatusCode} - {await response.Content.ReadAsStringAsync()}");
         }
 
         var jsonResponse = await response.Content.ReadAsStringAsync();
         var organizations = JsonSerializer.Deserialize<JsonElement>(jsonResponse);
 
-        return organizations.GetArrayLength() == 0;
+        foreach (var org in organizations.EnumerateArray())
+        {
+            var orgName = org.GetProperty("name").GetString();
+            if (!string.IsNullOrEmpty(orgName) && orgName.Equals(name, StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public async Task<bool> CreateOrganizationAsync(Auth0CreateOrganizationRequest request)
     {
         if (await CheckIfUserHasOrganizationAsync())
         {
+            Console.WriteLine("User already has an organization.");
             return false;
         }
 
         if (!await IsOrganizationNameUniqueAsync(request.Name))
         {
-            return false; 
+            Console.WriteLine($"Organization name {request.Name} is not unique.");
+            return false;
         }
 
         var client = await GetAuthenticatedClientAsync();
+        var sanitizedName = request.Name.ToLower().Replace(" ", "-");
 
         var organizationData = new
         {
-            name = request.Name,
+            name = sanitizedName,
             display_name = request.DisplayName,
             branding = new
             {
@@ -283,6 +294,49 @@ public class Auth0Service(HttpClient httpClient, IConfiguration configuration, A
         var requestUrl = $"https://{_domain}/api/v2/organizations";
 
         var response = await client.PostAsync(requestUrl, content);
+        var responseBody = await response.Content.ReadAsStringAsync();
+
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception($"Failed to create organization: {response.StatusCode} - {responseBody}");
+        }
+
+        var responseJson = JsonSerializer.Deserialize<JsonElement>(responseBody);
+        var organizationId = responseJson.GetProperty("id").GetString();
+
+        if (string.IsNullOrEmpty(organizationId))
+        {
+            throw new Exception("Failed to retrieve organization ID after creation.");
+        }
+
+        var userId = await GetCurrentUserIdAsync();
+        if (string.IsNullOrEmpty(userId))
+        {
+            throw new Exception("Failed to retrieve current user ID.");
+        }
+
+        return await AddUserToOrganizationAsync(organizationId, userId);
+    }
+    
+    private async Task<bool> AddUserToOrganizationAsync(string organizationId, string userId)
+    {
+        var requestUrl = $"https://{_domain}/api/v2/organizations/{organizationId}/members";
+
+        var memberData = new
+        {
+            members = new[] { userId }
+        };
+
+        var jsonRequest = JsonSerializer.Serialize(memberData);
+        var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+        var client = await GetAuthenticatedClientAsync();
+        var response = await client.PostAsync(requestUrl, content);
+
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"Failed to add user {userId} to organization {organizationId}: {await response.Content.ReadAsStringAsync()}");
+        }
 
         return response.IsSuccessStatusCode;
     }

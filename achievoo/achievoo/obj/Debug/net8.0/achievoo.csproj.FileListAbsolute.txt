@@ -57,3 +57,4 @@ C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\bin\Debug\net8.0\Sidi
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\achievoo.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\scopedcss\Components\Modules\EmployeeCard.razor.rz.scp.css
 C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\scopedcss\Components\Pages\EmployeeDetails.razor.rz.scp.css
+C:\Users\lewis\Documents\GitHub\achievoo\achievoo\achievoo\obj\Debug\net8.0\scopedcss\Components\Pages\Organizations.razor.rz.scp.css

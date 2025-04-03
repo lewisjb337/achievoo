@@ -8,7 +8,6 @@ namespace achievoo.Components.Pages.Modals;
 
 public partial class CreateEmployeeModal : ComponentBase
 {
-    
     [Inject]
     public IValidationService? ValidationService { get; set; }
     

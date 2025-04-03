@@ -7,6 +7,8 @@ public interface IAuth0Service
 {
     Task<bool> DeleteUserByEmailAsync(string email);
 
+    Task<bool> CheckIfUserHasOrganizationAsync();
+    
     Task<List<Auth0Organization>> GetUserOrganizationsAsync();
     
     Task<string?> GetCurrentUserOrganizationIdAsync();

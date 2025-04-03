@@ -40,7 +40,7 @@ else
                     </div>
                 }
             </div>
-            <button class="custom-button" @onclick="@(async () => await Create!.Open())"><i class="fa-solid fa-plus"></i>New Employee</button>
+            <button class="@(_organizationExists ? "custom-button" : "custom-button-disabled")" @onclick="@(_organizationExists ? async () => await Create!.Open() : () => {})"><i class="fa-solid fa-plus"></i>New Employee</button>
         </div>
     </div>
     <div class="m-5 row">
@@ -65,8 +65,8 @@ else
         else
         {
             <div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
-                <h4 class="text-danger mb-3">You haven't created any employees yet</h4>
-                <button class="custom-button-outline" @onclick="@(async () => await Create!.Open())"><i class="fa-solid fa-plus"></i> New Employee</button>
+                <h4 class="text-danger mb-3">You haven't created any employees yet@(_organizationExists ? "" : ", create an organization to start")</h4>
+                <button class="@(_organizationExists ? "custom-button-outline" : "custom-button-disabled")" @onclick="@(_organizationExists ? async () => await Create!.Open() : () => {})"><i class="fa-solid fa-plus"></i> New Employee</button>
             </div>
         }
     </div>
