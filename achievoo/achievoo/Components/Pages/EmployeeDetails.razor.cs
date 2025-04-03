@@ -20,7 +20,9 @@ public partial class EmployeeDetails : ComponentBase
     protected override async Task OnInitializedAsync()
     {
         _isLoading = true;
+        
         await LoadData();
+        
         _isLoading = false;
     }
 

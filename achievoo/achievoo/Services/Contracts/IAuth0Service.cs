@@ -1,13 +1,17 @@
-﻿using achievoo.Models.Auth0;
+﻿using achievoo.Models.Auth0.Organization;
 using achievoo.Requests.Auth0;
 
 namespace achievoo.Services.Contracts;
 
 public interface IAuth0Service
 {
-    Task<string?> GetOnboardingGuidAsync();
+    Task<bool> DeleteUserByEmailAsync(string email);
 
-    Task<string> CreateUserAsync(Auth0CreateUserRequest request);
+    Task<List<Auth0Organization>> GetUserOrganizationsAsync();
+    
+    Task<string?> GetCurrentUserOrganizationIdAsync();
 
-    Task DeleteUserAsync(string userId);
+    Task<bool> CreateOrganizationAsync(Auth0CreateOrganizationRequest request);
+    
+    Task<bool> InviteUserToOrganizationAsync(string organizationId, string userEmail);
 }

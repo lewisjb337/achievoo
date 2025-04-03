@@ -20,13 +20,15 @@ public partial class Employees : ComponentBase
     protected override async Task OnInitializedAsync()
     {
         _isLoading = true;
+        
         await LoadData();
+        
         _isLoading = false;
     }
 
     private async Task LoadData()
     {
-        EmployeeCollection = await SupabaseEmployeeService!.GetEmployeesAsync();
+        EmployeeCollection = await SupabaseEmployeeService!.GetEmployeesInOrganizationAsync();
     }
     
     protected async Task Refresh()

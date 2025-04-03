@@ -36,11 +36,8 @@ public class Employee : BaseModel
     [Column("Role")] 
     public string Role { get; set; } = string.Empty;
     
-    [Column("CompanyGuid")] 
-    public string CompanyGuid { get; set; } = string.Empty;
-    
-    [Column("Auth0Id")] 
-    public string Auth0Id { get; set; } = string.Empty;
+    [Column("OrganizationId")] 
+    public string OrganizationId { get; set; } = string.Empty;
     
     [Column("DateCreated")] 
     public DateTime DateCreated { get; set; } = DateTime.Now;
