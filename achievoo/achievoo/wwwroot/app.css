@@ -5,10 +5,12 @@
     --secondary: #EDF1f5;
     --secondary-hover: #D3DDE6;
     --warning: #EDCB50;
+    --warning-hover: #E9C02B;
     --info: #3F7FCA;
     --success: #3FCA90;
     --success-hover: #31B07B;
     --danger: #ED5050;
+    --danger-hover: #E92B2B;
     
     --background-color-light: #F7F9FC;
     --background-color-dark: #181D27;
@@ -52,6 +54,10 @@ h6 { font-size: 1rem !important; }
     color: var(--primary) !important;
 }
 
+.text-danger-default {
+    color: var(--danger) !important;
+}
+
 .text-danger {
     color: var(--danger) !important;
     font-size: 1.25rem !important;
@@ -72,7 +78,7 @@ h6 { font-size: 1rem !important; }
 }
 
 /*BUTTONS*/
-.custom-button, .custom-button-outline, .custom-button-secondary, .custom-button-success, .custom-button-disabled {
+.custom-button, .custom-button-outline, .custom-button-secondary, .custom-button-success, .custom-button-disabled, .custom-button-warning, .custom-button-danger {
     border-radius: 13px;
     padding: 10px 20px;
     display: flex;
@@ -149,6 +155,30 @@ h6 { font-size: 1rem !important; }
     color: white;
     opacity: 0.65;
     cursor: default !important;
+}
+
+.custom-button-warning {
+    background-color: var(--warning);
+    color: white;
+    border: 1px solid var(--warning);
+}
+
+.custom-button-warning:hover {
+    background-color: var(--warning-hover);
+    color: white;
+    border: 1px solid var(--warning-hover);
+}
+
+.custom-button-danger {
+    background-color: var(--danger);
+    color: white;
+    border: 1px solid var(--danger);
+}
+
+.custom-button-danger:hover {
+    background-color: var(--danger-hover);
+    color: white;
+    border: 1px solid var(--danger-hover);
 }
 
 /*FORMS*/

@@ -17,6 +17,8 @@ public partial class Organizations : ComponentBase
     private string SearchText { get; set; } = string.Empty;
     
     private CreateOrganizationModal? Create { get; set; }
+    private UpdateOrganizationModal? Update { get; set; }
+    private DeleteOrganizationModal? Delete { get; set; }
     
     protected override async Task OnInitializedAsync()
     {

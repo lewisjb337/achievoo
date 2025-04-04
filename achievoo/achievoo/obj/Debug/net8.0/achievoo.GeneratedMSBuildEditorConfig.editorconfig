@@ -46,6 +46,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RhbHNcQ3JlYXRlT3JnYW5pemF0aW9uTW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Pages/Modals/DeleteOrganizationModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RhbHNcRGVsZXRlT3JnYW5pemF0aW9uTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Pages/Modals/UpdateOrganizationModal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xNb2RhbHNcVXBkYXRlT3JnYW5pemF0aW9uTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Pages/Organizations.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPcmdhbml6YXRpb25zLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -65,7 +77,3 @@ build_metadata.AdditionalFiles.CssScope = b-rdhcc6s6ck
 [C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Pages/EmployeeDetails.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFbXBsb3llZURldGFpbHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-dw3n9jf45v
-
-[C:/Users/lewis/Documents/GitHub/achievoo/achievoo/achievoo/Components/Pages/Organizations.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xPcmdhbml6YXRpb25zLnJhem9y
-build_metadata.AdditionalFiles.CssScope = b-68fj0aegw0

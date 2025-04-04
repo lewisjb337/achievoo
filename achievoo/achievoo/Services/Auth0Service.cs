@@ -215,6 +215,67 @@ public class Auth0Service(HttpClient httpClient, IConfiguration configuration, A
         return organizations.EnumerateArray().Any() ? organizations[0].GetProperty("id").GetString() : null;
     }
     
+    public async Task<Auth0Organization?> GetOrganizationByIdAsync(string organizationId)
+    {
+        var client = await GetAuthenticatedClientAsync();
+        var requestUrl = $"https://{_domain}/api/v2/organizations/{organizationId}";
+
+        var response = await client.GetAsync(requestUrl);
+        
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine($"Failed to retrieve organization {organizationId}: {response.StatusCode}");
+            return null;
+        }
+
+        var responseJson = await response.Content.ReadAsStringAsync();
+        var organization = JsonSerializer.Deserialize<JsonElement>(responseJson);
+
+        return new Auth0Organization
+        {
+            Id = organization.GetProperty("id").GetString()!,
+            Name = organization.GetProperty("name").GetString()!,
+            DisplayName = organization.GetProperty("display_name").GetString()!,
+            Branding = new Branding
+            {
+                LogoUrl = organization.GetProperty("branding").GetProperty("logo_url").GetString()!,
+                Colors = new Colors
+                {
+                    Primary = organization.GetProperty("branding").GetProperty("colors").GetProperty("primary").GetString()!,
+                    PageBackground = organization.GetProperty("branding").GetProperty("colors").GetProperty("page_background").GetString()!
+                }
+            }
+        };
+    }
+
+    public async Task<bool> UpdateOrganizationAsync(Auth0UpdateOrganizationRequest request)
+    {
+        var client = await GetAuthenticatedClientAsync();
+        var requestUrl = $"https://{_domain}/api/v2/organizations/{request.OrganizationId}";
+
+        var updateData = new
+        {
+            display_name = request.DisplayName,
+            name =  request.Name,
+            branding = new
+            {
+                logo_url = request.LogoUrl,
+                colors = new
+                {
+                    primary = request.PrimaryColor,
+                    page_background = request.BackgroundColor
+                }
+            }
+        };
+
+        var jsonRequest = JsonSerializer.Serialize(updateData);
+        var content = new StringContent(jsonRequest, Encoding.UTF8, "application/json");
+
+        var response = await client.PatchAsync(requestUrl, content);
+
+        return response.IsSuccessStatusCode;
+    }
+    
     public async Task<bool> CheckIfUserHasOrganizationAsync()
     {
         var userEmail = await GetCurrentUserEmailAsync();
@@ -364,6 +425,16 @@ public class Auth0Service(HttpClient httpClient, IConfiguration configuration, A
 
         var client = await GetAuthenticatedClientAsync();
         var response = await client.PostAsync(requestUrl, content);
+
+        return response.IsSuccessStatusCode;
+    }
+    
+    public async Task<bool> DeleteOrganizationAsync(string organizationId)
+    {
+        var client = await GetAuthenticatedClientAsync();
+        var requestUrl = $"https://{_domain}/api/v2/organizations/{organizationId}";
+
+        var response = await client.DeleteAsync(requestUrl);
 
         return response.IsSuccessStatusCode;
     }
