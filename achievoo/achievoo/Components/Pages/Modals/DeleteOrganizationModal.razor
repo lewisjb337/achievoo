@@ -3,6 +3,6 @@
 <Modal @ref="_modal" Title="Delete Organization" ButtonClass="custom-button-danger" ActionName="Delete"
        OnAction="async () => await Delete()" OnModalClosed="OnModalClosed" IsDisabled="IsDisabled" UpdateState="true">
     <BodyContent>
-        <p style="color: #eff6ff">Are you sure you would like to delete this organization, this action is irreversible?</p>
+        <p style="color: var(--text-secondary)">Are you sure you would like to delete this organization, this action is irreversible?</p>
     </BodyContent>
 </Modal>
