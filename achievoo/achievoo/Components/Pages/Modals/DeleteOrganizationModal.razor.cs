@@ -15,8 +15,7 @@ public partial class DeleteOrganizationModal : ComponentBase
 
     private Modal? _modal;
 
-    private string _organizationId;
-    
+    private string _organizationId  = string.Empty;
     public bool IsDisabled;
 
     public Task Open(string organizationId)

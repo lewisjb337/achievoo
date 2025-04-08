@@ -23,7 +23,7 @@ public partial class UpdateOrganizationModal : ComponentBase
     private bool _isAddAttempted = false;
 
     private Auth0Organization? _organization;
-    private string _organizationId;
+    private string _organizationId = string.Empty;
     
     private string _name = string.Empty;
     private string _displayName = string.Empty;

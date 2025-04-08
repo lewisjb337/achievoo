@@ -13,7 +13,7 @@
     <div id="loading-overlay">
         <div class="loading-container">
             <div class="spinner"></div>
-            <div class="loading-text">Loading</div>
+            <div class="loading-text">Loading details</div>
         </div>
     </div>
 }
@@ -21,19 +21,228 @@ else
 {
     if (Employee is not null)
     {
-        // Section 1 (span whole row)
-        // Show general details
-        
-        // Section 2 (span half row)
-        // Show upcoming review date 
-        
-        // Section 3 (span half row)
-        // Show current targets/goals
-        
-        // Section 4 (span half row)
-        // Show statistics section using previous review data to show performance and target achievement rate
-        
-        // Section 5 (span half row)
-        // Show gamification section with current rank, points, company leaderboard place
+        <div class="row">
+            <div class="col-9">
+                <div class="card general-details-card">
+                    <div class="header-section">
+                        <img class="avatar" src="https://ui-avatars.com/api/?background=FF5249&color=FFFFFF&rounded=true&name=@Employee.FirstName+@Employee.LastName&size=64&font-size=0.5&bold=true&format=svg" alt="Avatar of @Employee.FirstName">
+
+                        <div class="name-role">
+                            <h2>@Employee.FirstName @Employee.LastName <i class="fa-solid fa-pen-to-square edit-icon"></i></h2>
+                            <p class="job-title">@Employee.JobTitle</p>
+                            <span class="employment-type badge">@Employee.EmploymentType</span>
+                        </div>
+
+                        <div class="contact-meta">
+                            <p><i class="fa-solid fa-envelope"></i> @Employee.EmailAddress</p>
+                            <p><i class="fa-solid fa-location-dot"></i> @Employee.Location</p>
+                        </div>
+                    </div>
+
+                    <div class="meta-section">
+                        <div class="meta-block">
+                            <label>Department</label>
+                            <p>@Employee.Department</p>
+                        </div>
+                        <div class="meta-block">
+                            <label>Joined Company</label>
+                            <p>@Employee.JoinedCompany.ToString("dd MMM yyyy")</p>
+                        </div>
+                        <div class="meta-block">
+                            <label>Role in App</label>
+                            <p>@Employee.Role</p>
+                        </div>
+                        <div class="meta-block">
+                            <label>Created</label>
+                            <p>@Employee.DateCreated.ToShortDateString()</p>
+                        </div>
+                        <div class="meta-block">
+                            <label>Updated</label>
+                            <p>@Employee.LastModified.ToShortDateString()</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="card upcoming-review-card">
+                    <div class="card-header">
+                        <i class="fa-regular fa-calendar-check"></i>
+                        Next Review
+                    </div>
+                    <div class="card-body">
+                        <div class="review-info">
+                            <p class="review-date">12 May 2025</p>
+                            <button class="custom-button-outline">Manage</button>
+                        </div>
+                        <p class="review-person">With <strong>Sarah Clarkson</strong></p>
+                        <p class="review-role">Line Manager</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card goals-card">
+                    <div class="card-header goals-card-header">
+                        <div class="card-header-left">
+                            <i class="fa-solid fa-bullseye card-header-icon"></i>
+                            Current Goals
+                        </div>
+                        <button class="custom-button">Manage</button>
+                    </div>
+                    <div class="card-body goals-body">
+                        @foreach (var goal in _goals)
+                        {
+                            <div class="goal-item">
+                                <div class="goal-main">
+                                    <div class="goal-title">
+                                        <i class="@goal.Icon"></i> @goal.Title
+                                    </div>
+                                    <div class="goal-status">
+                            <span class="badge @GetStatusClass(goal.Status)">
+                                @goal.Status
+                            </span>
+                                        <span class="due-date">
+                                Due: @goal.DueDate.ToString("dd MMM yyyy")
+                            </span>
+                                    </div>
+                                </div>
+                                <div class="goal-meta">
+                                    <div class="goal-description">@goal.Description</div>
+                                    <div class="goal-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width:@goal.Progress%">
+                                            </div>
+                                        </div>
+                                        <span class="progress-label">@goal.Progress% Complete</span>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card stats-card">
+                    <div class="card-header stats-card-header">
+                        <div class="card-header-left">
+                            <i class="fa-solid fa-chart-line"></i>
+                            Performance Statistics
+                        </div>
+                        <button class="custom-button-info">Generate Report</button>
+                    </div>
+                    <div class="card-body stats-body">
+                        <div class="stat-block">
+                            <label>Average Review Score</label>
+                            <p class="stat-value">4.3 / 5</p>
+                        </div>
+                        <div class="stat-block">
+                            <label>Goals Achieved</label>
+                            <p class="stat-value">12 of 15</p>
+                        </div>
+                        <div class="stat-block">
+                            <label>Review Frequency</label>
+                            <p class="stat-value">Quarterly</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card gamification-card">
+                    <div class="card-header gamification-card-header">
+                        <div class="card-header-left">
+                            <i class="fa-solid fa-gamepad"></i>
+                            Gamification Summary
+                        </div>
+                        <a href="/leaderboard" class="custom-button-info">View Leaderboard</a>
+                    </div>
+                    <div class="card-body gamification-body">
+                        <div class="game-block">
+                            <label>Rank</label>
+                            <p class="game-value">Gold</p>
+                        </div>
+                        <div class="game-block">
+                            <label>Points</label>
+                            <p class="game-value">2,450 XP</p>
+                        </div>
+                        <div class="game-block">
+                            <label>Leaderboard Position</label>
+                            <p class="game-value">#12 of 150</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+
+@code {
+    private readonly List<Goal> _goals =
+    [
+        new()
+        {
+            Title = "Increase client satisfaction by 10% in Q2",
+            Description = "Measure client feedback forms and weekly NPS score improvements.",
+            DueDate = new DateTime(2025, 6, 30),
+            Status = "In Progress",
+            Progress = 45,
+            Icon = "fa-solid fa-face-smile-beam"
+        },
+
+        new()
+        {
+            Title = "Complete leadership training by July",
+            Description = "Attend at least 3 sessions and pass the leadership assessment.",
+            DueDate = new DateTime(2025, 7, 15),
+            Status = "Pending",
+            Progress = 0,
+            Icon = "fa-solid fa-graduation-cap"
+        },
+
+        new()
+        {
+            Title = "Mentor 2 junior team members",
+            Description = "Schedule bi-weekly check-ins and support their onboarding progress.",
+            DueDate = new DateTime(2025, 8, 1),
+            Status = "Completed",
+            Progress = 100,
+            Icon = "fa-solid fa-users-line"
+        },
+
+        new()
+        {
+            Title = "Mentor 2 junior team members",
+            Description = "Schedule bi-weekly check-ins and support their onboarding progress.",
+            DueDate = new DateTime(2025, 8, 1),
+            Status = "Completed",
+            Progress = 100,
+            Icon = "fa-solid fa-users-line"
+        },
+
+        new()
+        {
+            Title = "Mentor 2 junior team members",
+            Description = "Schedule bi-weekly check-ins and support their onboarding progress.",
+            DueDate = new DateTime(2025, 8, 1),
+            Status = "Completed",
+            Progress = 100,
+            Icon = "fa-solid fa-users-line"
+        }
+    ];
+
+    private static string GetStatusClass(string status) => status.ToLower() switch
+    {
+        "completed" => "completed",
+        "in progress" => "inprogress",
+        "pending" => "pending",
+        _ => "pending"
+    };
+    
+    public class Goal
+    {
+        public string Title { get; init; } = string.Empty;
+        public string Description { get; init; } = string.Empty;
+        public DateTime DueDate { get; init; }
+        public string Status { get; init; } = string.Empty;
+        public int Progress { get; init; }
+        public string Icon { get; init; } = string.Empty;
     }
 }

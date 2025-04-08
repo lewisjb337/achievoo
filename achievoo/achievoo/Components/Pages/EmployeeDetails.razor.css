@@ -1,1 +1,423 @@
-﻿
+﻿/* 🌐 General Styling */
+.card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    margin-bottom: 2rem;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+/* 🔷 Shared Card Header */
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.card-header-icon {
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.card-header-left {
+    display: flex;
+    align-items: center; /* Ensures the icon and title are vertically aligned */
+    gap: 0.5rem; /* Controls the space between the icon and title */
+}
+
+
+/* 👤 General Details Card */
+.general-details-card {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    min-height: 16.5rem !important;
+}
+
+.edit-icon {
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-left: 10px;
+}
+
+.edit-icon:hover {
+    color: var(--primary);
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.name-role {
+    flex: 1;
+    margin-left: 1.5rem;
+    min-width: 200px;
+}
+
+.name-role h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.job-title {
+    margin: 0;
+    font-size: 16px;
+    color: #6B7280;
+}
+
+.badge {
+    background-color: #FFEBE9;
+    color: var(--primary);
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 0.4rem;
+}
+
+.contact-meta {
+    text-align: right;
+    min-width: 220px;
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.contact-meta i {
+    color: var(--primary);
+    margin-right: 6px;
+}
+
+.meta-section {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid #F0F0F0;
+}
+
+.meta-block {
+    min-width: 150px;
+    flex: 1;
+}
+
+.meta-block label {
+    display: block;
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.meta-block p {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* 🗓️ Upcoming Review Card */
+.upcoming-review-card {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F3F4F6;
+    padding: 0 !important;
+    min-height: 16.5rem !important;
+}
+
+.upcoming-review-card .card-header {
+    background-color: #FFF5F3; /* Soft warm tone, tweak to match brand */
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary);
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.upcoming-review-card .card-header i {
+    font-size: 18px;
+}
+
+.upcoming-review-card .card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* Added wrapper for review-date and button */
+.review-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-date {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.review-person {
+    font-size: 15px;
+    color: #374151;
+}
+
+.review-person strong {
+    font-weight: 600;
+}
+
+.review-role {
+    font-size: 13px;
+    color: #9CA3AF;
+    margin-top: -30px;
+}
+
+/* 🎯 Goals Card */
+.goals-card {
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F3F4F6;
+    padding: 0 !important;
+}
+
+.goals-card-header {
+    background-color: #FFF5F3;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--primary);
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.goals-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-height: 30rem;
+    overflow-y: scroll;
+}
+
+.goal-item {
+    background: #F9FAFB;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid #E5E7EB;
+}
+
+.goal-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.goal-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.goal-status {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.badge.completed { background: #D1FAE5; color: #065F46; }
+.badge.inprogress { background: #FEF3C7; color: #92400E; }
+.badge.pending { background: #E0E7FF; color: #3730A3; }
+
+.due-date {
+    font-size: 13px;
+    color: #9CA3AF;
+}
+
+.goal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.goal-description {
+    font-size: 14px;
+    color: #4B5563;
+}
+
+.goal-progress {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #E5E7EB;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    background: var(--primary);
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.progress-label {
+    font-size: 13px;
+    color: #6B7280;
+    white-space: nowrap;
+}
+
+.stats-card {
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    padding: 0 !important;
+    border: 1px solid #F3F4F6;
+}
+
+.stats-card .card-header {
+    background-color: var(--info-background);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--info);
+    border-bottom: 1px solid #E5E7EB;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+}
+
+.stats-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stats-body {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.stat-block label {
+    font-size: 13px;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}
+
+.gamification-card {
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: #fff;
+    padding: 0 !important;
+    border: 1px solid #F3F4F6;
+}
+
+.gamification-card .card-header {
+    background-color: var(--special-background);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--special);
+    border-bottom: 1px solid #E5E7EB;
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+}
+
+.gamification-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gamification-body {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.game-block label {
+    font-size: 13px;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.game-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+}

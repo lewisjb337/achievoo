@@ -43,7 +43,7 @@ else
             <button class="@(_organizationExists ? "custom-button" : "custom-button-disabled")" @onclick="@(_organizationExists ? async () => await Create!.Open() : () => {})"><i class="fa-solid fa-plus"></i>New Employee</button>
         </div>
     </div>
-    <div class="m-5 row">
+    <div class="row px-5 gx-5">
         @if (EmployeeCollection is not null && EmployeeCollection.Any())
         {
             foreach (var employee in EmployeeCollection.Filter(SearchText, x => x.FirstName))
